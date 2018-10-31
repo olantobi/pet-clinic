@@ -46,7 +46,7 @@
     </build>
 
     <scm>
-        <developerConnection>scm:git:https://github.com/olantobi/pet-clinic.git</developerConnection>
+        <developerConnection>scm:git:http://github.com/olantobi/pet-clinic</developerConnection>
         <tag>pet-clinic-3</tag>
     </scm>
 
