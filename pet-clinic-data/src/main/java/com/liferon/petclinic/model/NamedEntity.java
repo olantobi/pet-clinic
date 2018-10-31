@@ -1,5 +1,8 @@
 package com.liferon.petclinic.model;
 
-public class NamedEntity extends BaseEntity<Long> {
+import lombok.Data;
+
+@Data
+public class NamedEntity<Type> extends BaseEntity<Type> {
     private String name;
 }
