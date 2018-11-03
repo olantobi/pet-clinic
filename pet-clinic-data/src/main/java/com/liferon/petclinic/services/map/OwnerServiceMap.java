@@ -1,11 +1,13 @@
 package com.liferon.petclinic.services.map;
 
 import com.liferon.petclinic.model.Owner;
-import com.liferon.petclinic.services.CrudService;
+import com.liferon.petclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+@Service
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
 
     @Override
@@ -32,4 +34,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     public void delete(Owner object) {
         super.delete(object);
     }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
+    }
+
 }

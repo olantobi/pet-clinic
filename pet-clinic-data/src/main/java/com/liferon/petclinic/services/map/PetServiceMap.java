@@ -1,11 +1,13 @@
 package com.liferon.petclinic.services.map;
 
 import com.liferon.petclinic.model.Pet;
-import com.liferon.petclinic.services.CrudService;
+import com.liferon.petclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+@Service
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Pet findById(Long id) {
