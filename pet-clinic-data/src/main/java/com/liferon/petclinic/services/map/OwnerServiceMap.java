@@ -2,13 +2,17 @@ package com.liferon.petclinic.services.map;
 
 import com.liferon.petclinic.model.Owner;
 import com.liferon.petclinic.services.OwnerService;
+import com.liferon.petclinic.services.PetService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@AllArgsConstructor
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
+    private PetService petService;
 
     @Override
     public Owner findById(Long id) {
@@ -17,7 +21,18 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object);
+
+        if (object != null) {
+            if (object.getPets() != null) {
+                object.getPets().forEach(pet -> petService.save(pet));
+            } else {
+                throw new RuntimeException("Pet Type is required");
+            }
+
+            return super.save(object);
+        } else {
+            return null;
+        }
     }
 
     @Override

@@ -2,12 +2,17 @@ package com.liferon.petclinic.services.map;
 
 import com.liferon.petclinic.model.Pet;
 import com.liferon.petclinic.services.PetService;
+import com.liferon.petclinic.services.PetTypeService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@AllArgsConstructor
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
+
+    private PetTypeService petTypeService;
 
     @Override
     public Pet findById(Long id) {
@@ -16,7 +21,14 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
 
     @Override
     public Pet save(Pet object) {
-        return super.save(object);
+        if (object != null) {
+            if (object.getPetType() != null && object.getPetType().getId() == null) {
+                petTypeService.save(object.getPetType());
+            }
+            return super.save(object);
+        }
+
+        return null;
     }
 
     @Override

@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Set;
 
 @Controller
-@RequestMapping("/vets")
 @AllArgsConstructor
 public class VetController {
 
     private VetService vetService;
 
-    @RequestMapping({"", "/", "index", "index.html"})
+    @RequestMapping({"/vets", "/vets.html"})
     public String listVets(Model model) {
 
         Set<Vet> vets = vetService.findAll();
