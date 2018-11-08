@@ -1,10 +1,7 @@
 package com.liferon.petclinic.bootstrap;
 
 import com.liferon.petclinic.model.*;
-import com.liferon.petclinic.services.OwnerService;
-import com.liferon.petclinic.services.PetTypeService;
-import com.liferon.petclinic.services.SpecialtyService;
-import com.liferon.petclinic.services.VetService;
+import com.liferon.petclinic.services.*;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -19,6 +16,7 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -69,6 +67,23 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(adesPet);
 
         ownerService.save(owner2);
+
+        System.out.println("Loading visits...");
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(adesPet);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy kitty");
+
+        visitService.save(catVisit);
+
+        Visit dogVisit = new Visit();
+        dogVisit.setPet(tobisPet);
+        dogVisit.setDate(LocalDate.now().minusDays(2));
+        dogVisit.setDescription("Sleepy dog");
+
+        visitService.save(dogVisit);
+
         System.out.println("Loading vets...");
 
         Specialty radiology = new Specialty();

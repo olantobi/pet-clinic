@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "visits")
 @EqualsAndHashCode(exclude = {"pet"})
-public class Visit extends BaseEntity<Integer> {
+public class Visit extends BaseEntity<Long> {
 
     private LocalDate date;
     private String description;
