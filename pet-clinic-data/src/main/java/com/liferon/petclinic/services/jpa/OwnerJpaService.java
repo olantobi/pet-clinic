@@ -30,13 +30,14 @@ public class OwnerJpaService implements OwnerService {
 
     @Override
     public Owner save(Owner object) {
-
         if (object != null) {
-            if (object.getPets() != null) {
-                object.getPets().forEach(pet -> petJpaService.save(pet));
-            } else {
-                throw new RuntimeException("Pets is required");
-            }
+//            if (object.getPets() != null) {
+//                object.getPets().forEach(
+//                        pet -> petJpaService.save(pet)
+//                );
+//            } else {
+//                throw new RuntimeException("Pets is required");
+//            }
 
             return ownerRepository.save(object);
         } else {

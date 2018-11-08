@@ -1,6 +1,7 @@
 package com.liferon.petclinic.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,6 +11,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "pets")
+@EqualsAndHashCode(exclude = {"owner"})
 public class Pet extends NamedEntity<Long> {
 
     @ManyToOne

@@ -18,6 +18,11 @@ public class Owner extends Person {
     private String city;
     private String telephone;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
+
+    public void addPet(Pet pet) {
+        pet.setOwner(this);
+        pets.add(pet);
+    }
 }
