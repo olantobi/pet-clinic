@@ -3,7 +3,7 @@ package com.liferon.petclinic.services.jpa;
 import com.liferon.petclinic.model.Specialty;
 import com.liferon.petclinic.repositories.SpecialtyRepository;
 import com.liferon.petclinic.services.SpecialtyService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +12,10 @@ import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class SpecialtyJpaService implements SpecialtyService {
 
-    private SpecialtyRepository specialtyRepository;
+    private final SpecialtyRepository specialtyRepository;
 
     @Override
     public Specialty findById(Long id) {

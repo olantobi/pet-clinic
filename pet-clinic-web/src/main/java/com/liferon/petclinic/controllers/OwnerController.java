@@ -2,7 +2,7 @@ package com.liferon.petclinic.controllers;
 
 import com.liferon.petclinic.model.Owner;
 import com.liferon.petclinic.services.OwnerService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,10 +11,10 @@ import java.util.Set;
 
 @Controller
 @RequestMapping("/owners")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class OwnerController {
 
-    private OwnerService ownerService;
+    private final OwnerService ownerService;
 
     @RequestMapping({"", "/", "index", "index.html"})
     public String listOwners(Model model) {

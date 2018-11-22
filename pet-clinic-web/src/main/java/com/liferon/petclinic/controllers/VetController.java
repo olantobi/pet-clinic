@@ -2,7 +2,7 @@ package com.liferon.petclinic.controllers;
 
 import com.liferon.petclinic.model.Vet;
 import com.liferon.petclinic.services.VetService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Set;
 
 @Controller
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class VetController {
 
-    private VetService vetService;
+    private final VetService vetService;
 
     @RequestMapping({"/vets", "/vets.html"})
     public String listVets(Model model) {

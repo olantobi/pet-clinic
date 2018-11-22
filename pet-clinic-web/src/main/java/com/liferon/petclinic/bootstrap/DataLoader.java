@@ -2,14 +2,14 @@ package com.liferon.petclinic.bootstrap;
 
 import com.liferon.petclinic.model.*;
 import com.liferon.petclinic.services.*;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;

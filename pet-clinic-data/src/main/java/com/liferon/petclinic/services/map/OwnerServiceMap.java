@@ -3,7 +3,7 @@ package com.liferon.petclinic.services.map;
 import com.liferon.petclinic.model.Owner;
 import com.liferon.petclinic.services.OwnerService;
 import com.liferon.petclinic.services.PetService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +11,10 @@ import java.util.Set;
 
 @Service
 @Profile({"default", "map"})
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
-    private PetService petService;
+    private final PetService petService;
 
     @Override
     public Owner findById(Long id) {

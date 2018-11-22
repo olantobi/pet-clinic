@@ -3,7 +3,7 @@ package com.liferon.petclinic.services.jpa;
 import com.liferon.petclinic.model.Visit;
 import com.liferon.petclinic.repositories.VisitRepository;
 import com.liferon.petclinic.services.VisitService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +12,10 @@ import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class VisitJpaService implements VisitService {
 
-    private VisitRepository visitRepository;
+    private final VisitRepository visitRepository;
 
     @Override
     public Visit findById(Long id) {

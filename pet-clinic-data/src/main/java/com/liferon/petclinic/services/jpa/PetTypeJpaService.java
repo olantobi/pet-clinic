@@ -3,7 +3,7 @@ package com.liferon.petclinic.services.jpa;
 import com.liferon.petclinic.model.PetType;
 import com.liferon.petclinic.repositories.PetTypeRepository;
 import com.liferon.petclinic.services.PetTypeService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +12,10 @@ import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class PetTypeJpaService implements PetTypeService {
 
-    private PetTypeRepository petTypeRepository;
+    private final PetTypeRepository petTypeRepository;
 
     @Override
     public PetType findById(Long id) {

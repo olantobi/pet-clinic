@@ -4,7 +4,7 @@ import com.liferon.petclinic.model.Pet;
 import com.liferon.petclinic.repositories.PetRepository;
 import com.liferon.petclinic.repositories.PetTypeRepository;
 import com.liferon.petclinic.services.PetService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +13,11 @@ import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class PetJpaService implements PetService {
 
-    private PetRepository petRepository;
-    private PetTypeRepository petTypeRepository;
+    private final PetRepository petRepository;
+    private final PetTypeRepository petTypeRepository;
 
     @Override
     public Pet findById(Long id) {

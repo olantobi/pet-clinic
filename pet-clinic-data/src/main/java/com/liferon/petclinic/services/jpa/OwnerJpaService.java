@@ -3,7 +3,7 @@ package com.liferon.petclinic.services.jpa;
 import com.liferon.petclinic.model.Owner;
 import com.liferon.petclinic.repositories.OwnerRepository;
 import com.liferon.petclinic.services.OwnerService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +11,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Profile("springdatajpa")
 public class OwnerJpaService implements OwnerService {
 
-    private OwnerRepository ownerRepository;
+    private final OwnerRepository ownerRepository;
     private PetJpaService petJpaService;
 
     @Override
